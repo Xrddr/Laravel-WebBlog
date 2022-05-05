@@ -14,6 +14,8 @@ Route::get('/create_news', [NewsController::class,'create'])->name('create_news'
 
 Route::post('/create_news/check', [NewsController::class,'store']);
 
+Route::delete('news/{oneNews}', [NewsController ::class, 'destroy'])->name('news_destroy');
+
 Route::get('/signin', function () {
     return view('sign_in');
 });

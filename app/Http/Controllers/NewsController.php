@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\CreateNewsRequest;
 use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::orderBy('id', 'DESC')->get();
+        $news = News::orderByDesc('id')->paginate(3);
         return view('news', compact('news'));
     }
     public function create()
@@ -28,6 +28,9 @@ class NewsController extends Controller
     {}
     public function update()
     {}
-    public function destroy()
-    {}
+    public function destroy(News $oneNews)
+    {
+        $oneNews->delete();
+            return redirect('news');
+    }
 }
