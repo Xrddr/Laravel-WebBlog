@@ -22,12 +22,19 @@ class NewsController extends Controller
         News::create($request->validated());
             return redirect('news');
     }
-    public function show()
-    {}
-    public function edit()
-    {}
-    public function update()
-    {}
+    public function show(News $oneNews)
+    {
+        return view('news_show', compact('oneNews'));
+    }
+    public function edit(News $oneNews)
+    {
+        return view('news_edit', compact('oneNews'));
+    }
+    public function update(CreateNewsRequest $request, News $oneNews)
+    {
+        $oneNews->update($request->validated());
+            return redirect('news');
+    }
     public function destroy(News $oneNews)
     {
         $oneNews->delete();

@@ -13,13 +13,23 @@
 
                         <p class="card-text"><small class="text-muted">Дата создания: {{ $oneNews->created_at }}</small>
                         </p>
-                        <form method="post" action="{{ route('news_destroy', $oneNews->id) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="float-right btn btn-danger">
-                                <img src="{{ asset('images/trash.svg') }}">
-                            </button>
-                        </form>
+                        <div class="float-end">
+                            <a href="{{ route('news_show', $oneNews->id) }}" type="submit" class=" btn btn-secondary">
+                                <img src="{{ asset('images/eye.svg') }}">
+                            </a>
+                            <a href="{{ route('news_edit', $oneNews->id) }}" type="submit" class=" btn btn-secondary">
+                                <img src="{{ asset('images/edit.svg') }}">
+                            </a>
+                            <br>
+                            <br>
+                            <form method="post" action="{{ route('news_destroy', $oneNews->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    <img src="{{ asset('images/trash.svg') }}">
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <br>
