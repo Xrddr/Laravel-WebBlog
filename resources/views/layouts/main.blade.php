@@ -17,10 +17,22 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="/" class="nav-link px-2 link-dark">Home</a></li>
-            <li><a href="{{route('news')}}" class="nav-link px-2 link-dark">News</a></li>
-            <li><a href="{{route('create_news')}}" class="nav-link px-2 link-dark">Create news</a></li>
-            <li><a href="{{route('about')}}" class="nav-link px-2 link-dark">About</a></li>
+            <li><a href="/" class="nav-link px-2 link-dark">
+                    <img src="{{ asset('images/home.svg') }}">
+                    Home
+                </a></li>
+            <li><a href="{{route('news')}}" class="nav-link px-2 link-dark">
+                    <img src="{{ asset('images/news.svg') }}">
+                    News
+                </a></li>
+            <li><a href="{{route('create.news')}}" class="nav-link px-2 link-dark">
+                    <img src="{{ asset('images/add.svg') }}">
+                    Create news
+                </a></li>
+            <li><a href="{{route('about')}}" class="nav-link px-2 link-dark">
+                    <img src="{{ asset('images/about.svg') }}">
+                    About
+                </a></li>
         </ul>
         <div class="col-md-3 text-end">
             <a href="/signin" type="button" class="btn btn-primary me-2">Login</a>
@@ -31,7 +43,7 @@
 <div class="container">
     @yield('main_content')
 </div>
-<div class="fixed-bottom">
+<div class="fixed-bottom mx-auto" style="width: 250px">
     <blockquote class="blockquote text-center">
         <p class="mb-0">Made with <img src="{{asset('images/heart.svg')}}"> by <a style="text-decoration: none" class="link-primary" href="about">xrddr</a>
         </p>
