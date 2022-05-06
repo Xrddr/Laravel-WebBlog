@@ -11,21 +11,21 @@
                         <h5 class="card-title">{{$oneNews->name}}</h5>
                         <p class="card-text">{{ $oneNews->description }}</p>
 
-                        <p class="card-text"><small class="text-muted">Дата создания: {{ $oneNews->created_at }}</small>
+                        <p class="card-text"><small class="text-muted">Дата создания: {{ $oneNews->created_at->format('H:i:s / d-m-Y') }}</small>
                         </p>
-                        <div class="float-end">
-                            <a href="{{ route('news_show', $oneNews->id) }}" type="submit" class=" btn btn-secondary">
+                        <div class="float-end d-inline-block">
+                            <a href="{{ route('news.show', $oneNews) }}" type="submit" class=" btn btn-outline-secondary">
                                 <img src="{{ asset('images/eye.svg') }}">
                             </a>
-                            <a href="{{ route('news_edit', $oneNews->id) }}" type="submit" class=" btn btn-secondary">
+                            <a href="{{ route('news.edit', $oneNews) }}" type="submit" class="btn btn-outline-secondary">
                                 <img src="{{ asset('images/edit.svg') }}">
                             </a>
                             <br>
                             <br>
-                            <form method="post" action="{{ route('news_destroy', $oneNews->id) }}">
+                            <form method="post" action="{{ route('news.destroy', $oneNews) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
+                                <button type="submit" class="btn btn-outline-danger">
                                     <img src="{{ asset('images/trash.svg') }}">
                                 </button>
                             </form>

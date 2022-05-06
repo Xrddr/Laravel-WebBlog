@@ -3,7 +3,7 @@
     Редактирование новости
 @endsection
 @section('main_content')
-    <form method="post" action="{{ route('news_update', $oneNews->id) }}"
+    <form method="post" action="{{ route('news.update', $oneNews) }}"
           class="text-center container border border-1 container p-5 position-absolute mx-auto w-50 top-50 start-50 translate-middle">
         <h1 class="h3 mb-3 fw-normal">Edit news</h1>
         @if($errors->any())
